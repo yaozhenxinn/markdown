@@ -7,6 +7,12 @@
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <title>Markdown editor</title>
     <style>
+        body{
+            margin: 0;
+        }
+        #notebook{
+            display: flex;
+        }
         .notebook,.input,.preview{
             /*border:1px solid red;*/
             height:1000px;
@@ -14,23 +20,14 @@
         .notebook{
             background-color: sandybrown;
             width: 20%;
-            position: absolute;
-            left:0%;
-            top:0%;
         }
         .input{
             background-color: skyblue;
             width: 40%;
-            position: absolute;
-            left: 20%;
-            top:0%;
         }
         .preview{
             background-color: springgreen;
             width: 40%;
-            position: absolute;
-            left: 60%;
-            top: 0%;
         }
     </style>
 </head>
