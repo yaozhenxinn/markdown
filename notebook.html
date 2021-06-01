@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/marked"></script>
     <title>Markdown editor</title>
     <style>
         body{
@@ -14,12 +15,16 @@
             display: flex;
         }
         .notebook,.input,.preview{
-            /*border:1px solid red;*/
             height:1000px;
         }
         .notebook{
-            background-color: sandybrown;
-            width: 20%;
+            width: 100%;
+            background-color:tomato;
+        }
+        textarea{
+            width: 100%;
+            height: 100%;
+            background-color:skyblue;
         }
         .input{
             background-color: skyblue;
@@ -33,13 +38,25 @@
 </head>
 <body>
     <div id="notebook">
-        <div class="notebook">notebook</div>
-        <div class="input">input</div>
-        <div class="preview">preview</div>
+        <div class="notebook"></div>
+        <div class="input">
+            <textarea v-model="content"></textarea>
+        </div>
+        <div class="preview">
+            {{markdownPreview}}
+        </div>
     </div>
     <script>
         var vm = new Vue({
-            el:'#notebook'
+            el:'#notebook',
+            data:{
+                content:'test'
+            },
+            computed:{
+                markdownPreview(){
+                    return marked(this.content)
+                }
+            }
         })
 </script>
 
